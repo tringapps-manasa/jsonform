@@ -1,0 +1,52 @@
+<html>
+    <body>
+        
+        
+        
+            <input type="file" id="myFile" name="filename" onchange="File(event)"><br>
+             Enter ur name
+            <input type="text" id="txtname" /><br>
+            Enter ur age
+            <input type="text" id="age"><br>
+            Enter ur number
+            <input type="text" id="phnumber"><br>
+            <input type="submit" id="btnsubmit" onclick="fnRedirect()">
+          
+          
+
+    </body>
+    <script type="text/javascript">
+        var imgsrc = '';
+       var fnRedirect = function () {
+            var Name =  document.getElementById('txtname').value;
+            var Age  =  document.getElementById('age').value;
+            var MobileNumber  =  document.getElementById('phnumber').value;
+            
+            var JSONObj = new Object();
+            /*JSONObj.Name2 = "Anu";
+            JSONObj.MobileNumber2 = "9876543210";
+            JSONObj.Age2 = 18;*/
+
+            JSONObj.Name=Name;
+            JSONObj.Age=Age;
+            JSONObj.MobileNumber=MobileNumber;
+            
+
+            sessionStorage.setItem('Details', JSON.stringify(JSONObj));
+      
+            location.href="display.html";
+        };
+        
+        document.querySelector("#myFile").addEventListener("change", function(){
+                const reader = new FileReader();
+                reader.addEventListener("load", () =>{
+                    localStorage.setItem("myfile-image", reader.result);
+                    
+                })
+                reader.readAsDataURL(this.files[0]);
+
+        }); 
+    </script>
+</html>
+
+

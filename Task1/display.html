@@ -1,0 +1,37 @@
+<html>
+    <body>
+
+       
+        <label> Display Image</label>
+        <br><p><img id="output" width="200" /></p>
+      <br>
+        <p>uisng html json data</p>
+        <br><p>Name: <label id="lblName" style="cursor: pointer;"></label></p>
+        <br><p>Age: <label id="lblAge" style="cursor: pointer;"></label></p>
+        <br><p>Mobile number: <label id="lblNum" style="cursor: pointer;"></label></p>
+    
+      <!--  <br><p>Name: <label id="lblName2" style="cursor: pointer;"></label></p>
+        <br><p>Age: <label id="lblAge2" style="cursor: pointer;"></label></p>
+        <br><p>Mobile number: <label id="lblNum2" style="cursor: pointer;"></label></p>-->
+       
+        <script>
+        
+        var image = document.querySelector('#output');
+        image.setAttribute("src",localStorage.getItem("myfile-image"));
+        
+        var obj = JSON.parse(sessionStorage.getItem('Details')); 
+        
+        document.getElementById('lblName').innerHTML = obj.Name;
+        document.getElementById('lblAge').innerHTML = obj.Age;
+        document.getElementById('lblNum').innerHTML=obj.MobileNumber;
+        
+
+        /*document.getElementById('lblName2').innerHTML = obj.Name2;
+        document.getElementById('lblAge2').innerHTML = obj.Age2;
+        document.getElementById('lblNum2').innerHTML=obj.MobileNumber2;
+        */
+
+        </script>
+        
+</body>
+</html>
